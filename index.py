@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 '''
 import des librairies necessaires
 '''
@@ -10,6 +12,8 @@ import time
 '''
 recuperation des donnees sources
 '''
+
+
 data = pd.read_excel("data.xlsx",sheet_name="Sheet1",index_col=0)
 print('lecture des donnees...\n','_'*60)
 time.sleep(3)
@@ -54,7 +58,7 @@ print("_"*60)
 
 # l’écart type empirique de chacune des variables
 time.sleep(2)
-print("Generation de l’écart type empirique de chacune des variables ...")
+print("Generation de l’écart type empirique de chacune des variables ...".encode('utf8').decode('mbcs'))
 time.sleep(3)
 S = np.std(X,axis=0,ddof=0)
 a = pd.DataFrame(S,index=data.columns)
@@ -63,7 +67,8 @@ print("_"*60)
 
 # Le tableau Z des données centrées réduites
 time.sleep(2)
-print("Generation du tableau Z des données centrées réduites ...")
+char = "Generation du tableau Z des données centrées réduites ...".encode('utf8').decode('mbcs')
+print(char)
 time.sleep(3)
 Z = X
 for i in range(0,2):
@@ -103,7 +108,7 @@ print("_"*60)
 
 # l’éboulis des valeurs propres
 time.sleep(2)
-print("generation de l’éboulis des valeurs propres ...")
+print("generation de l’éboulis des valeurs propres ...".encode('utf8').decode('mbcs'))
 time.sleep(3)
 plt.plot(np.arange(1,data.shape[1]+1), valPropres)
 plt.title("Eboulis des valeurs propres")
@@ -114,7 +119,7 @@ print("_"*60)
 
 # représentation des individus dans l’espace des 2 axes principaux d’inertie
 time.sleep(2)
-print("generation de la représentation des individus dans l’espace des 2 axes principaux d’inertie ...")
+print("generation de la représentation des individus dans l’espace des 2 axes principaux d’inertie ...".encode('utf8').decode('mbcs'))
 time.sleep(3)
 model_acp = PCA(svd_solver='full')
 acpCord = model_acp.fit_transform(Z)
@@ -131,7 +136,7 @@ print("_"*60)
 
 # qualité de la représentation des individus dans cet espace
 time.sleep(2)
-print("calcul de la qualité de la représentation des individus dans cet espace ...")
+print("calcul de la qualité de la représentation des individus dans cet espace ...".encode('utf8').decode('mbcs'))
 time.sleep(3)
 di = np.sum(Z**2,axis=1) 
 cos2 = acpCord**2
